@@ -1,4 +1,4 @@
-# Counting the total sales based on Town
+-- Counting the total property sales based on Town
 
 Select town, Count(serial_number) as total_sales
 From real_estate_18_21
@@ -7,7 +7,7 @@ Order by total_sales Desc;
 
 
 
-# Comparing assessed value and sale price based on town
+-- Comparing assessed value and sale price based on town
 
 With CTE_1 as
 (
@@ -27,7 +27,7 @@ From CTE_1;
 
 
 
-# Demand for different property types
+-- Demand for different property types
 
 Drop Table If Exists temp_1;
 Create Temporary Table temp_1
@@ -38,7 +38,7 @@ Group by property_type
 Select *
 From temp_1;
 
-# Trends of different property types based on town
+-- Trends of different property types based on town
 
 Select town, property_type, Count(serial_number) as unit_sold
 From real_estate_18_21
@@ -48,7 +48,7 @@ Order by property_type Desc, unit_sold Desc
 
 
 
-# Breaking the residential property type and find the rend based on town
+-- Breaking the residential property type and find the rend based on town
 
 Select town, property_type, residential_type, Count(residential_type) as unit_sold
 From real_estate_18_21
